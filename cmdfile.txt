@@ -1,3 +1,6 @@
 pwd
 date
 ls -l
+sed -i 's/7.3.4.103/7.3.4.$VARIABLE/g'  /etc/hosts
+sed –i 's/cos-103/cos-$VARIABLE/g'  /etc/hosts
+

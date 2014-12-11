@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import re
 import os,sys
-import time
+import time as yijun
 import socket
 import struct
 import pexpect
@@ -99,11 +99,6 @@ def action(ip,name,passwd,cmdlist,time=20):
 	logger.addHandler(ch)
 	for i in cmdlist:
 		if i != "":
-			#~Improvement:XiaoG::"update CMD with incremented IP"
-			if "$VARIABLE" in i:
-				i = i.replace("$VARIABLE",ip.split('.')[-1])
-
-			#!Improvement:XiaoG::"update CMD with incremented IP"  
 			result = SSHClient(logger,ip,i,name,passwd,prompt_logined,time)
 
 
@@ -122,7 +117,7 @@ def execution(IPfile,CMDfile,time=20):
 
 	cmdf = open(CMDfile,'r')
 	commandinfo = cmdf.read()
-	cmdf.close()   
+	cmdf.close()    
 
 	listCluster = clusterinfo.split(os.linesep)
 	listCommand = commandinfo.split(os.linesep)
@@ -142,6 +137,8 @@ def execution(IPfile,CMDfile,time=20):
 
 
 	for i in range(len(listCluster)):
+		#import time
+		yijun.sleep(200)
 		if listCluster[i] != '':
 			t[i].start()
 
