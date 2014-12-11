@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import re
 import os,sys
-import time
+import time as yijun
 import socket
 import struct
 import pexpect
@@ -137,6 +137,8 @@ def execution(IPfile,CMDfile,time=20):
 
 
 	for i in range(len(listCluster)):
+		#import time
+		yijun.sleep(200)
 		if listCluster[i] != '':
 			t[i].start()
 
